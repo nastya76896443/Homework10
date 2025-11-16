@@ -1,1 +1,58 @@
 # Homework10
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+void author_info() {
+    cout << "Programme author Anastasia Tarasova" << endl;
+    cout << "Using the input value from the user, the programme solves the expression. Variant 71" << endl;
+}
+
+void number_input( double& x) {
+    cout<< "Enter a number x ( != 12, != 3, != -5): " <<endl;
+    cin >> x;
+}
+
+double f (double x){
+    return sin(22/51.0) + 20 * M_PI - 50 * M_E * (9.0 / (x-3) * (x+5)) - 9 * atan(x+7) + (3.0/ (x-12)); 
+}
+
+// Function to check the value of x in the domain
+bool check_x (double x){
+    return (x != 12 && x != 3 && x != -5);
+
+}
+
+int main(){
+
+author_info();
+
+double x;
+number_input(x);
+
+
+if (cin.fail()) 
+    {
+        cin.clear(); 
+        cout << "Wrong input" << endl;
+        return 1;
+    }
+
+
+cout << "***** do calculations ... " << endl;
+bool domain = check_x(x);
+double result = f(x);
+
+cout << "done" << endl;
+
+cout << "for x=" << fixed << setprecision(7) << x << endl;
+
+if (domain) {
+    cout << "result = " << fixed << setprecision(8) << result << endl;
+} else {
+    cout << "result = undefined" << endl;
+}
+
+return 0;
+}
